@@ -1,6 +1,5 @@
 import "./ExpenseDate.css";
 
-
 function ExpenseDate(props)
 {
     let createdDate = new Date(props.date);
