@@ -1,15 +1,30 @@
 import "./Expenses.css";
 import ExpenseItem  from "../Expenses/ExpenseItem";
+import ExpenseFilter from "../Expenses/ExpenseFilter";
 import Card from "../UI/Card";
+import {useState} from 'react';
 
 function Expenses(pass)
 {
+  const [year,setYear]=useState("2020");
+  const onChangeHandler=(event)=>
+  {
+    //console.log(event.target.value);
+    setYear(event);
+  }
+  
+  console.log(pass.pass.length);
     return (
         <Card className="expenses">
-        <ExpenseItem title={pass.pass[0].title } price={pass.pass[0].amount} date={pass.pass[0].date}></ExpenseItem>
-      <ExpenseItem title={pass.pass[1].title } price={pass.pass[1].amount} date={pass.pass[1].date}></ExpenseItem>
-      <ExpenseItem title={pass.pass[2].title } price={pass.pass[2].amount} date={pass.pass[2].date}></ExpenseItem>
-      <ExpenseItem title={pass.pass[3].title } price={pass.pass[3].amount} date={pass.pass[3].date}></ExpenseItem>
+        <ExpenseFilter selected={year} onChangeFilter={onChangeHandler}/>
+      {
+       
+        pass.pass.map(function(el,index)
+        {
+          return  <ExpenseItem key={el.id} title={el.title } price={el.amount} date={el.date}></ExpenseItem>
+        })
+      
+      }
         </Card>
     )
 }
