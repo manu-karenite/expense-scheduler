@@ -16,7 +16,7 @@ const NewExpense = (props)=>
          ...receivedData,
          id:"e"+idCreate
        }
-       console.log (newOb);
+       //console.log (newOb);
          props.onCreate(newOb);
     }
    
