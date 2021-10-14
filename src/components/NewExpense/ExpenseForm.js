@@ -31,7 +31,6 @@ const ExpenseForm = (props)=>
         amount:enteredamount,
         date:new Date(entereddate)
         }
-        console.log(newObj);
         props.onNewForm(newObj);
         //clear the form
         setAmount("");
@@ -43,11 +42,11 @@ const ExpenseForm = (props)=>
         <div className="new-expense__controls">
             <div className="new-expense__control">
                 <label>Title</label>
-                <input type="text" onChange={setTitleHandler} value={enteredtitle} required/>
+                <input type="text" onChange={setTitleHandler} value={enteredtitle} required placeholder="Expense Name Here"/>
             </div>
              <div className="new-expense__control">
                 <label>Amount</label>
-                <input type="number" min="0.01" step="0.01" value={enteredamount} onChange={setAmountHandler} required/>
+                <input type="number" min="0.01" step="0.01" value={enteredamount} onChange={setAmountHandler} required placeholder="Amount Here"/>
             </div>
             <div className="new-expense__control">
                 <label>Date</label>

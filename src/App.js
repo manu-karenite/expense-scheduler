@@ -1,7 +1,7 @@
 
 import Expenses from "../src/components/Expenses/Expenses";
 import NewExpense from "../src/components/NewExpense/NewExpense";
-
+import "./App.css";
  import {useState} from 'react';
 const expenses = [
 
@@ -17,13 +17,12 @@ function App() {
     setOriginalItem((originalItem)=>
     {
        const a = [receivedObject,...originalItem];
-       console.log(a);
        return a;
     });
   };
   return (
     <div>
-     
+      <center> <h3 className="title">Expense Scheduler</h3></center>
        <NewExpense onCreate = {onCreateHandler}/>
       <Expenses pass={originalItem}/>
     </div>
